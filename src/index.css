@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-dark-bg text-emerald dark:text-dark-text font-inter transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat;
+  }
+}
+
+@layer components {
+  .block-section {
+    @apply p-8 rounded-2xl bg-emerald text-white backdrop-blur-sm 
+           transition-all duration-300 
+           hover:bg-emerald-700 shadow-lg hover:shadow-xl hover:scale-[1.02]
+           dark:bg-dark-surface dark:hover:bg-sage/20 dark:hover:shadow-sage/5;
+  }
+
+  .block-card {
+    @apply p-6 rounded-xl backdrop-blur-sm transition-all duration-300 
+           bg-white/10 hover:bg-white/20 hover:scale-[1.02] hover:shadow-xl
+           dark:bg-white/5 dark:hover:bg-white/10 dark:hover:shadow-sage/5
+           border border-white/10 hover:border-white/20;
+  }
+
+  .section-title {
+    @apply text-4xl font-bold text-center mb-8 text-white dark:text-white;
+  }
+
+  .card-title {
+    @apply text-xl font-montserrat text-white dark:text-white font-semibold;
+  }
+
+  .card-subtitle {
+    @apply text-white/80 dark:text-white/80 mt-1;
+  }
+
+  .social-bubble {
+    @apply w-12 h-12 rounded-full flex items-center justify-center 
+           text-white transition-all duration-300
+           shadow-[0_4px_12px_rgba(0,0,0,0.1)]
+           hover:shadow-[0_8px_24px_rgba(0,0,0,0.15)]
+           dark:shadow-[0_4px_12px_rgba(0,0,0,0.2)]
+           dark:hover:shadow-[0_8px_24px_rgba(0,0,0,0.3)]
+           transform hover:scale-110 hover:-translate-x-1
+           bg-gradient-to-br from-emerald to-emerald-700
+           dark:from-sage/90 dark:to-sage/70
+           backdrop-blur-[2px];
+  }
+
+  .social-bubbles-container {
+    @apply fixed right-6 top-1/2 -translate-y-1/2 z-40 
+           flex flex-col gap-4 items-center;
+  }
+
+  .social-bubble:hover {
+    @apply -translate-x-2;
+  }
+
+  .share-button {
+    @apply p-2 rounded-full bg-emerald/10 dark:bg-sage/10 
+           hover:bg-emerald/20 dark:hover:bg-sage/20 
+           text-emerald dark:text-sage
+           transition-colors duration-300;
+  }
+
+  .blog-content {
+    @apply prose dark:prose-invert max-w-none
+           prose-headings:font-montserrat
+           prose-h2:text-3xl prose-h2:text-emerald dark:prose-h2:text-sage prose-h2:mt-12 prose-h2:mb-6
+           prose-h3:text-2xl prose-h3:text-emerald dark:prose-h3:text-sage prose-h3:mt-8 prose-h3:mb-4
+           prose-p:text-lg prose-p:text-emerald/80 dark:prose-p:text-sage/80 prose-p:leading-relaxed prose-p:mb-6
+           prose-ul:list-disc prose-ul:list-inside prose-ul:space-y-2 prose-ul:mb-6
+           prose-li:text-emerald/80 dark:prose-li:text-sage/80;
+  }
+}
+
+/* Admin page specific styles */
+.admin-page {
+  cursor: default !important;
+}
+
+.admin-page * {
+  cursor: inherit !important;
+}
+
+.admin-page button,
+.admin-page a,
+.admin-page input,
+.admin-page textarea,
+.admin-page select {
+  cursor: pointer !important;
+}
+
+.admin-page input,
+.admin-page textarea {
+  cursor: text !important;
+}
