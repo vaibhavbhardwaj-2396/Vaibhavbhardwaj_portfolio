@@ -2,29 +2,14 @@
   command = "npm run build"
   publish = "dist"
 
-# Add these specific route handlers first
-[[redirects]]
-  from = "/blog/*"
-  to = "/index.html"
-  status = 200
-
-[[redirects]]
-  from = "/admin/*"
-  to = "/index.html"
-  status = 200
-
-# Keep this as the catch-all
+# SPA redirect
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = true
 
-[[headers]]
-  for = "/*"
-    [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https:;"
+# Explicitly ignore the assets folder from SPA fallback
+[[redirects]]
+  from = "/assets/*"
+  to = "/assets/:splat"
+  status = 200
