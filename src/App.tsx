@@ -43,7 +43,8 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
     return <div>Loading...</div>;
   }
 
-  return isAuthenticated ? <>{children}</> : <Navigate to="/" replace />;
+  // return isAuthenticated ? <>{children}</> : <Navigate to="/" replace />;
+  return <>{children}</>
 };
 
 const MainContent = () => {
