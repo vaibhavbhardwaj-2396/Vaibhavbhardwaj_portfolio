@@ -40,10 +40,10 @@ export const Hero = () => {
               <Counter end={4} suffix="+" label="Years Experience" />
             </div>
             <div className="block-section p-4 md:p-8">
-              <Counter end={40} suffix="+" label="Teams Led" />
+              <Counter end={7} suffix="+" label="Clients Served" />
             </div>
             <div className="block-section p-4 md:p-8">
-              <Counter end={7} suffix="+" label="Projects" />
+              <Counter end={11} suffix="+" label="Projects Delivered" />
             </div>
           </div>
         </div>
