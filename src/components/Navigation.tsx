@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import heroImage from '../assets/Hero Image/hero_image.jpeg';
 
 export const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -52,15 +53,25 @@ export const Navigation = () => {
           ${isScrolled ? 'max-w-full' : 'max-w-7xl'}
         `}>
           <Link 
-            to="/"
-            onClick={scrollToTop}
-            className={`font-playfair text-xl transition-colors duration-[400ms]
-              ${isScrolled 
-                ? 'text-white hover:text-sage' 
-                : 'text-emerald dark:text-sage hover:text-emerald-700 dark:hover:text-white'}`}
-          >
-            Vaibhav
-          </Link>
+  to="/"
+  onClick={scrollToTop}
+  className={`font-playfair text-xl transition-all duration-[400ms] flex items-center gap-2
+    ${isScrolled 
+      ? 'text-white hover:text-sage' 
+      : 'text-emerald dark:text-sage hover:text-emerald-700 dark:hover:text-white'}`}
+>
+  <span className={`transition-all duration-200 ${isScrolled ? 'hidden' : 'inline'}`}>
+    Vaibhav
+  </span>
+  <div className={`transition-all duration-200 flex items-center gap-2 ${isScrolled ? 'flex' : 'hidden'}`}>
+    <img 
+      src={heroImage} 
+      alt="Hero" 
+      className="w-8 h-8 rounded-full object-cover"
+    />
+    <span>Vaibhav</span>
+  </div>
+</Link>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
